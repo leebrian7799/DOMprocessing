@@ -1,13 +1,12 @@
-
-
-
-class DomNodeCollection{
+class DomNodeCollection {
   constructor(nodes){
     this.nodes = nodes;
   }
   html(str = null){
-    if (typeof str === 'string'){
-      this.nodes.for( (node)=>{
+
+
+    if (str.constructor.name === 'String'){
+      this.nodes.forEach( (node)=>{
         node.innerHTML = str;
       });
     }else if (this.node.length > 0){
@@ -15,9 +14,11 @@ class DomNodeCollection{
     }
   }
 
+
   empty(){
     this.html('');
   }
+
 
   append(children){
     if (this.node.length === 0) return;
@@ -40,9 +41,17 @@ class DomNodeCollection{
 
   }
 
-  remove(){}
+  remove(){
+    this.nodes.forEach(node.parentNode.removeChild(node));
+  }
 
-  attr(){}
+  attr(key, val){
+    if (typeof val === 'string'){
+      this.each(node => node.setAttribute(key, val));
+    }else{
+      return this.nodes[0].getAttribute(key);
+    }
+  }
 
   addClass(){}
 
@@ -56,3 +65,4 @@ class DomNodeCollection{
   parent(){}
 
 }
+  module.exports = DomNodeCollection;

@@ -1,4 +1,6 @@
-const DomNodeCollection = require("./dom_node_collection");
+const DomNodeCollection = require("./dom_node_collection.js");
+
+window.DomNodeCollection = DomNodeCollection;
 
 window.$l = function(arg){
 
@@ -18,10 +20,10 @@ window.$l = function(arg){
 getNodesFromDom = (arg) => {
   const nodes = document.querySelectorAll(arg);
   const nodesArray = Array.from(nodes);
-  return DomNodeCollection(nodesArray);
+  return new DomNodeCollection(nodesArray);
 };
 
-$(function(){
-
-
-});
+// $(function(){
+//
+//
+// });
