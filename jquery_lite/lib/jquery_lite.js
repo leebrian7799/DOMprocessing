@@ -90,6 +90,7 @@ window.$l = function(arg){
 
 
 getNodesFromDom = (arg) => {
+  
   const nodes = document.querySelectorAll(arg);
   const nodesArray = Array.from(nodes);
   return new DomNodeCollection(nodesArray);
@@ -107,7 +108,7 @@ getNodesFromDom = (arg) => {
 
 class DomNodeCollection {
   constructor(nodes){
-    this.nodes = nodes;
+    this.nodesß = nodes;
   }
   html(str = null){
 
@@ -165,11 +166,33 @@ class DomNodeCollection {
   removeClass(){}
 
 
-  find(){}
+  find(callback){
+    let nodes = [];
+    this.each( (node)=>{
+      if (callback(node)) nodes.push(node);
+    });
 
-  children(){}
+    return new DomNodeCollection(nodes);
+  }
 
-  parent(){}
+  children(){
+    let childNodes = [];
+    this.each((node)=>{
+        const childNodeList = node.children;
+        childNodes = childNodes.concat(Array.from(childNodeList));
+    });
+
+    return new DomNodeCollection(childNodes);
+  }
+
+  parent(){
+    let parentNode = [];
+    parentNode = this.parent;
+
+    return new DomNodeCollection(childNodes);
+
+
+  }
 
 }
   module.exports = DomNodeCollection;

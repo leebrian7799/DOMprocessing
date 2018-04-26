@@ -18,6 +18,7 @@ window.$l = function(arg){
 
 
 getNodesFromDom = (arg) => {
+  
   const nodes = document.querySelectorAll(arg);
   const nodesArray = Array.from(nodes);
   return new DomNodeCollection(nodesArray);
