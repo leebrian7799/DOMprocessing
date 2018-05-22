@@ -8,7 +8,7 @@ Create DOMNodeCollection objects from HTMLElements
 Queue callbacks until DOM is ready and loaded
 Simplify HTTP requests
 <h1>Getting Started</h1>
-To get started with DOMprocessing, use the documents in the /dom_processing/lib/ folder by running webpack in the command line to recreate the webpack file, then include the webpack output output jquery_lite.js in your source code.
+To get started with DOMprocessing, use the documents in the /dom_processing/lib/ folder by running webpack in the command line to recreate the webpack file, then include the webpack output output dom_processing.js in your source code.
 
 ```
 <head>
