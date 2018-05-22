@@ -14,7 +14,7 @@ To get started with DOMprocessing, use the documents in the /dom_processing/lib/
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="./css/reset.css">
-  <script type="text/javascript" src="../dist/jquery_lite.js"></script>
+  <script type="text/javascript" src="../lib/dom_processing.js.js"></script>
   ...
 </head>
 ```
