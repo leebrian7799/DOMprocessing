@@ -1,6 +1,8 @@
 const DomNodeCollection = require("./dom_node_collection.js");
 
 window.DomNodeCollection = DomNodeCollection;
+const _docReadyCallbacks = [];
+let _docReady = false;
 
 window.$l = function(arg){
   switch(typeof arg){
