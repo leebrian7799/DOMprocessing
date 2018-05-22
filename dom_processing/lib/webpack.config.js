@@ -1,7 +1,8 @@
 module.exports = {
-  entry: "./main.js",
+  entry: "./lib/main.js",
   output: {
-      path: "dist",
-      filename: "dom_processing.js"
-  }
+    path: __dirname,
+    filename: "./lib/dom_processing.js"
+	},
+	devtool: "source-map"
 };
