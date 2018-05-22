@@ -2,9 +2,8 @@ class DomNodeCollection {
   constructor(nodes){
     this.nodesß = nodes;
   }
+
   html(str = null){
-
-
     if (str.constructor.name === 'String'){
       this.nodes.forEach( (node)=>{
         node.innerHTML = str;
@@ -12,6 +11,10 @@ class DomNodeCollection {
     }else if (this.node.length > 0){
       return this.nodes[0].innerHTML;
     }
+  }
+
+  each(cb){
+    this.nodes.forEach(cb);
   }
 
 
