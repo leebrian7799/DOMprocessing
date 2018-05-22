@@ -90,16 +90,12 @@ window.$l = function(arg){
 
 
 getNodesFromDom = (arg) => {
-  
+
   const nodes = document.querySelectorAll(arg);
   const nodesArray = Array.from(nodes);
   return new DomNodeCollection(nodesArray);
 };
 
-// $(function(){
-//
-//
-// });
 
 
 /***/ }),
@@ -108,7 +104,7 @@ getNodesFromDom = (arg) => {
 
 class DomNodeCollection {
   constructor(nodes){
-    this.nodesß = nodes;
+    this.nodes = nodes;
   }
   html(str = null){
 

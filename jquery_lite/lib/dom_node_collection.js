@@ -1,14 +1,14 @@
 class DomNodeCollection {
   constructor(nodes){
-    this.nodesß = nodes;
+    this.nodes = nodes;
   }
 
   html(str = null){
-    if (str.constructor.name === 'String'){
-      this.nodes.forEach( (node)=>{
+    if (str.constructor.name === 'String') {
+      this.nodes.forEach((node) => {
         node.innerHTML = str;
       });
-    }else if (this.node.length > 0){
+    } else if (this.node.length > 0) {
       return this.nodes[0].innerHTML;
     }
   }
@@ -17,16 +17,38 @@ class DomNodeCollection {
     this.nodes.forEach(cb);
   }
 
+  on(eventName, callback) {
+    this.each((node) => {
+      node.addEventListener(eventName, callback);
+      const eventKey = `domprocessingEvents-${eventName}`;
+      if (typeof node[eventKey] === "undefined") {
+        node[eventKey] = [];
+      }
+      node[eventKey].push(callback);
+    });
+  }
+
+  off(eventName) {
+    this.each((node) => {
+      const eventKey = `domprocessingEvents-${eventName}`;
+      if (node[eventKey]) {
+        node[eventKey].forEach((callback) => {
+          node.removeEventListener(eventName, callback);
+        });
+      }
+      node[eventKey] = [];
+    });
+  }
 
   empty(){
     this.html('');
   }
 
-
   append(children){
     if (this.node.length === 0) return;
 
-    if (typeof children === 'string' && !(children instanceof DomNodeCollection)){
+    if (typeof children === 'object'
+     && !(children instanceof DomNodeCollection)){
       children = $l(children);
     }
 
@@ -41,7 +63,6 @@ class DomNodeCollection {
         });
       });
     }
-
   }
 
   remove(){
@@ -56,9 +77,13 @@ class DomNodeCollection {
     }
   }
 
-  addClass(){}
+  addClass(){
+    this.each(node => node.classList.add(newClass));
+  }
 
-  removeClass(){}
+  removeClass(oldClass){
+   this.each(node => node.classList.remove(oldClass));
+  }
 
 
   find(callback){
