@@ -85,10 +85,13 @@ class DomNodeCollection {
    this.each(node => node.classList.remove(oldClass));
   }
 
+  toggleClass(toggleClass){
+    this.each(node => node.classList.toggle(toggleClass));
+  }
 
   find(callback){
     let nodes = [];
-    this.each( (node)=>{
+    this.each( (node) => {
       if (callback(node)) nodes.push(node);
     });
 
@@ -97,7 +100,7 @@ class DomNodeCollection {
 
   children(){
     let childNodes = [];
-    this.each((node)=>{
+    this.each((node) => {
         const childNodeList = node.children;
         childNodes = childNodes.concat(Array.from(childNodeList));
     });
@@ -105,14 +108,23 @@ class DomNodeCollection {
     return new DomNodeCollection(childNodes);
   }
 
+
   parent(){
     let parentNode = [];
     parentNode = this.parent;
 
+    this.each(({parentNode}) => {
+        if (!parentNode.visisted){
+          parentNodes..push(parentNode);
+          parentNode.visisted = true;
+      }
+    });
+
+    parentNode.forEach(node) => {
+      node.visited = false;
+    }
+
     return new DomNodeCollection(childNodes);
-
-
+    }
   }
-
-}
   module.exports = DomNodeCollection;
