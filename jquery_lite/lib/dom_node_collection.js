@@ -17,29 +17,6 @@ class DomNodeCollection {
     this.nodes.forEach(cb);
   }
 
-  on(eventName, callback) {
-    this.each((node) => {
-      node.addEventListener(eventName, callback);
-      const eventKey = `domprocessingEvents-${eventName}`;
-      if (typeof node[eventKey] === "undefined") {
-        node[eventKey] = [];
-      }
-      node[eventKey].push(callback);
-    });
-  }
-
-  off(eventName) {
-    this.each((node) => {
-      const eventKey = `domprocessingEvents-${eventName}`;
-      if (node[eventKey]) {
-        node[eventKey].forEach((callback) => {
-          node.removeEventListener(eventName, callback);
-        });
-      }
-      node[eventKey] = [];
-    });
-  }
-
   empty(){
     this.html('');
   }
@@ -90,12 +67,12 @@ class DomNodeCollection {
   }
 
   find(callback){
-    let nodes = [];
-    this.each( (node) => {
-      if (callback(node)) nodes.push(node);
+    let foundNodes = [];
+    this.each((node) => {
+      const nodeList = node.querySelectorAll(selector);
+      foundNodes = foundNodes.concat(Array.from(nodeList));
     });
-
-    return new DomNodeCollection(nodes);
+    return new DomNodeCollection(foundNodes);
   }
 
   children(){
@@ -115,7 +92,7 @@ class DomNodeCollection {
 
     this.each(({parentNode}) => {
         if (!parentNode.visisted){
-          parentNodes..push(parentNode);
+          parentNodes.push(parentNode);
           parentNode.visisted = true;
       }
     });
@@ -125,6 +102,30 @@ class DomNodeCollection {
     }
 
     return new DomNodeCollection(childNodes);
+    }
+
+
+    on(eventName, callback) {
+      this.each((node) => {
+        node.addEventListener(eventName, callback);
+        const eventKey = `domprocessingEvents-${eventName}`;
+        if (typeof node[eventKey] === "undefined") {
+          node[eventKey] = [];
+        }
+        node[eventKey].push(callback);
+      });
+    }
+
+    off(eventName) {
+      this.each((node) => {
+        const eventKey = `domprocessingEvents-${eventName}`;
+        if (node[eventKey]) {
+          node[eventKey].forEach((callback) => {
+            node.removeEventListener(eventName, callback);
+          });
+        }
+        node[eventKey] = [];
+      });
     }
   }
   module.exports = DomNodeCollection;
