@@ -108,7 +108,7 @@ Toggles a class, given as an argument, for each DOMNodeCollection element.
 
 ```
 function handler () {
-  console.log("Someone clicked!"
+  console.log("Clicked!")
 }
 domnodecollection.on("click", handler);
 domnodecollection.off("click");
