@@ -1,5 +1,5 @@
 # DOMprocessing
-DOMprocessing is an implementation of most of the functionality of the jQuery library. jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. DOMprocessing allows users to:
+DOMprocessing is an implementation of the most commonly used functionality of the jQuery library. jQuery is a small, responsive, and feature-rich JavaScript library. It makes things like HTML document manipulation and traversal, event handling, Ajax, and animation much simpler with an intuitive API that works across many browsers. DOMprocessing allows users to:
 
 Select DOM element
 Traverse and manipulate DOM elements
@@ -81,28 +81,28 @@ DOMNodeCollection methods to view and/or change DOM elements
 
 
 <h3>html</h3>
-When no argument is given it return the innerHTML for the first element in the DOMNodeCollection. If a string argument is given, it changes the innerHTML of each DOMNodeCollection element to the string argument.
+When no argument is given it returns the innerHTML for the first element in the DOMNodeCollection. If a string argument is given, it sets the innerHTML of each DOMNodeCollection element to the string argument.
 
 <h3>empty</h3>
 Clears the innerHTML of each DOMNodeCollection element
 
 <h3>append</h3>
-Takes a single HTMLElement, DOMNodeCollection, or string argument and appends it to each DOMNodeCollection element.
+Takes a single HTMLElement, DOMNodeCollection, or a string argument and appends it to each DOMNodeCollection element.
 
 <h3>remove</h3>
 Remove DOMNodeCollection elements from the DOM.
 
 <h3>attr</h3>
-Takes either one (attr(attribute)) or two (attr(attribute, value)) arguments. If given one argument, the method gets the value of the attribute given for the the first element in the DOMNodeCollection. The method sets the attribute, given as the first argument, as the value, given as the second argument, for each DOMNodeCollection element.
+Takes in either one or two arguments. If given one, the method gets the value of the attribute given for the the first element in the DOMNodeCollection. If both are given, the method sets the attribute and the value for each DOMNodeCollection element.
 
 <h3>addClass</h3>
-Adds a class, given as an argument, to each DOMNodeCollection element.
+Adds a class to each DOMNodeCollection element.
 
 <h3>removeClass</h3>
-Removes a class, given as an argument, from each DOMNodeCollection element.
+Removes a class from each DOMNodeCollection element.
 
 <h3>toggleClass</h3>
-Toggles a class, given as an argument, for each DOMNodeCollection element.
+Toggles a class for each DOMNodeCollection element.
 
 <h2>Event Listeners</h2>
 
@@ -115,13 +115,13 @@ domnodecollection.off("click");
 ```
 
 <h3>on</h3>
-Adds event listener to each DOMNodeCollection element. List of events are available here.
+Adds event listener to DOMNodeCollection element. 
 
 <h3>off</h3>
-Removes event listener from each DOMNodeCollection element.
+Removes event listener from DOMNodeCollection element.
 
 <h3>$l.ajax</h3>
-Sends HTTP Request and returns a Promise object. Accepts a Hash object as an argument with any of the following attributes:
+Sends HTTP Request and returns a Promise. It takes in a Hash object as an argument with any number of these attributes:
 
 ```
 method (default: "GET"): HTTP Request method or type
