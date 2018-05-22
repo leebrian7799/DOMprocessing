@@ -105,6 +105,7 @@ Removes a class, given as an argument, from each DOMNodeCollection element.
 Toggles a class, given as an argument, for each DOMNodeCollection element.
 
 <h2>Event Listeners</h2>
+
 ```
 function handler () {
   console.log("Someone clicked!"
@@ -112,6 +113,7 @@ function handler () {
 domnodecollection.on("click", handler);
 domnodecollection.off("click");
 ```
+
 <h3>on</h3>
 Adds event listener to each DOMNodeCollection element. List of events are available here.
 
