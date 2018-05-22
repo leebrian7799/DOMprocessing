@@ -97,9 +97,9 @@ class DomNodeCollection {
       }
     });
 
-    parentNode.forEach(node) => {
+    parentNode.forEach((node) => {
       node.visited = false;
-    }
+    })
 
     return new DomNodeCollection(childNodes);
     }
